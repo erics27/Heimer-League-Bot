@@ -1,4 +1,5 @@
 import discord
+import DataDragon
 
 from FactSelector import FactSelector
 
@@ -13,11 +14,11 @@ async def on_ready():
 async def on_message(message):
     if message.author == client.user:
         return
-
     if message.content.startswith('test'):
         await message.channel.send('pickle rick')
     elif message.content.startswith('!fact'):
         await message.channel.send(select_fact.get_fact())
+    elif message.content.startswith('')
 
 # uncomment this line and input password
 client.run("OTExNTAxMzU5Nzk3Mzg3Mjg1.YZiTyw.rFc6ynX4hEeAMnbwKhckGIHol8A")
