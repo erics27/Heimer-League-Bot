@@ -3,7 +3,7 @@ import discord
 from FactSelector import FactSelector
 
 client = discord.Client()
-select_fact = FactSelector();
+select_fact = FactSelector()
 
 @client.event
 async def on_ready():
