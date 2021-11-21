@@ -20,7 +20,7 @@ async def on_message(message):
     if message.content.startswith('!fact'):
         await message.channel.send(select_fact.get_fact())
     elif message.content.startswith('!help'):
-        await message.channel.send('!fact = Gives a random league fact')
+        await message.channel.send('!fact = Gives a random league fact\n!coinflip = Flips a coin')
     elif message.content.startswith('!coinflip'):
         await message.channel.send(random.choice(coin))
 
