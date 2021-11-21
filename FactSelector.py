@@ -31,7 +31,8 @@ class FactSelector:
                               "Sejuani’s dash also breaks through Anivia’s wall.",
                               "When an enemy Nunu dies near Thresh, two souls drop, one for Nunu and other for Willump (the yeti).",
                               "If Volibear’s frenzy (active effect) deals a killing blow against Lollipoppy, he’ll have a lollipop in his mouth for the rest of the match.",
-                              "Heimer’s passive heals turrets."]
+                              "Heimer’s passive heals turrets.",
+                              "Using taunt on Neon Strike Vi, Vi toggles her goggles on/off."]
 
     def get_fact(self):
         return random.choice(self.list_of_facts)
