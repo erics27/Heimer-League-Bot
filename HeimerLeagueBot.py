@@ -14,10 +14,10 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith('test'):
-        await message.channel.send('pickle rick')
-    elif message.content.startswith('!fact'):
+    if message.content.startswith('!fact'):
         await message.channel.send(select_fact.get_fact())
+    elif message.content.startswith('!help'):
+        await message.channel.send('!fact = Gives a random league fact')
 
 # uncomment this line and input password
-client.run("OTExNTAxMzU5Nzk3Mzg3Mjg1.YZiTyw.rFc6ynX4hEeAMnbwKhckGIHol8A")
+client.run("OTExNTAxMzU5Nzk3Mzg3Mjg1.YZiTyw.AAUNRcmbsqDgsjKWc4frEkWlbCQ")
