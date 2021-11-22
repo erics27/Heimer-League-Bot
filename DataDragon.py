@@ -2,7 +2,9 @@ import string
 
 import requests, json
 
+
 class DataDragon:
+
     replaced = False;
     name = ""
     replaced_name = ""
@@ -23,10 +25,10 @@ class DataDragon:
         self.name = name
         response = requests.get('http://ddragon.leagueoflegends.com/cdn/11.23.1/data/en_US/champion.json')
         response.json()
-        champRawData = json.loads(response.text)
-        crd = champRawData['data']
+        champ_raw_data = json.loads(response.text)
+        crd = champ_raw_data['data']
 
-        if (" " in self.name):
+        if " " in self.name:
             self.replaced_name = self.name
             self.name = self.name.replace(" ", "")
             self.replaced = True
