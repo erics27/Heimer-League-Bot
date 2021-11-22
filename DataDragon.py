@@ -16,10 +16,11 @@ class DataDragon:
 
     def __init__(self, input):
         # Concat input
-        index = input.find(":")
-        input = input[index + 1:len(input)]
+        index = input.find(" ")
+        name = input[index + 1:len(input)]
+        name = self.cap_each(name)
 
-        self.name = input
+        self.name = name
         response = requests.get('http://ddragon.leagueoflegends.com/cdn/11.23.1/data/en_US/champion.json')
         response.json()
         champRawData = json.loads(response.text)
@@ -38,6 +39,14 @@ class DataDragon:
         self.title = crd[self.name]['title']
         if self.replaced:
             self.name = self.replaced_name
+
+    def cap_each(self, string):
+        list_of_words = string.split(" ")
+
+        for word in list_of_words:
+            list_of_words[list_of_words.index(word)] = word.capitalize()
+
+        return " ".join(list_of_words)
 
     def compactSpaces(self, str):
         os = ""
