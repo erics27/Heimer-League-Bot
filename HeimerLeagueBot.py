@@ -57,7 +57,7 @@ async def on_message(message):
             select_summoner_info = SummonerInfo(input)
             output = select_summoner_info.recent_win_rate()
             await message.channel.send("Win: " + str(output[0]) + '\n' + " Loss: " + str(output[1] - output[0])
-                                       + '\n' + " Win rate: " + str(output[0]/output[1]) + "%")
+                                       + '\n' + " Win rate: " + str(output[0]/output[1]*100) + "%")
         except Exception:
             await message.channel.send("Invalid Summoner Name")
 
