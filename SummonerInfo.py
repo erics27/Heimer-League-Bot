@@ -67,8 +67,8 @@ class SummonerInfo:
 
     def recent_win_rate(self):
         recent_match_ids = self.match_id_history
-        wins = 0.0
-        games = 0.0
+        wins = 0
+        games = 0
         for recent_match_id in recent_match_ids:
             response = requests.get("https://americas.api.riotgames.com/lol/match/v5/matches/"
                                     + recent_match_id + "?api_key=RGAPI-" + self.key)
@@ -81,7 +81,6 @@ class SummonerInfo:
                 if participant_info['win']:
                     wins += 1
                 games += 1
-            print(str(wins) + " " + str(games))
         return_list = [wins, games]
         return return_list
 
