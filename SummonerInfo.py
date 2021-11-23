@@ -13,7 +13,7 @@ class SummonerInfo:
 
     def __init__(self, sum_name):
         self.summoner_name = self.concat_name(sum_name)
-        self.no_spaces_summoner_name = sum_name.replace(" ", "%20")
+        self.no_spaces_summoner_name = self.summoner_name.replace(" ", "%20")
         self.puuid = self.get_puuid()
         self.match_id_history = self.get_match_id_history()
 
