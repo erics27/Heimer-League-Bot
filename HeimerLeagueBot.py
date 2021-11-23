@@ -48,7 +48,7 @@ async def on_message(message):
             select_summoner_info = SummonerInfo(input)
             output = select_summoner_info.get_most_recent_match_info()
             await message.channel.send(output[5] + " as " + output[0] + " " + output[1]
-                                       + '\n' + " KDA: " + output[2] + "/" + output[3] + "/" + output[4])
+                                       + '\n' + "KDA: " + output[2] + "/" + output[3] + "/" + output[4])
         except Exception:
             await message.channel.send("Invalid Summoner Name")
     elif message.content.startswith('!Winrate '):
@@ -56,8 +56,8 @@ async def on_message(message):
         try:
             select_summoner_info = SummonerInfo(input)
             output = select_summoner_info.recent_win_rate()
-            await message.channel.send("Win: " + str(output[0]) + '\n' + " Loss: " + str(output[1] - output[0])
-                                       + '\n' + " Win rate: " + str(output[0]/output[1]*100) + "%")
+            await message.channel.send("Win: " + str(output[0]) + '\n' + "Loss: " + str(output[1] - output[0])
+                                       + '\n' + "Win rate: " + str(output[0]/output[1]*100) + "%")
         except Exception:
             await message.channel.send("Invalid Summoner Name")
 
