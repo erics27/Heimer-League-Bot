@@ -1,8 +1,7 @@
 import discord
 from DataDragon import DataDragon
-
-
 from FactSelector import FactSelector
+from SummonerInfo import SummonerInfo
 
 client = discord.Client()
 select_fact = FactSelector()
@@ -35,6 +34,33 @@ async def on_message(message):
             await message.channel.send(output)
         except Exception:
             await message.channel.send("Invalid Champion Name")
+    elif message.content.startswith('!SummonerInfo '):
+        input = message.content
+        try:
+            select_summoner_info = SummonerInfo(input)
+            output = select_summoner_info.get_level()
+            await message.channel.send(str(output[0]) + ": Level " + str(output[1]))
+        except Exception:
+            await message.channel.send("Invalid Summoner Name")
+    elif message.content.startswith('!MatchHistory '):
+        input = message.content
+        try:
+            select_summoner_info = SummonerInfo(input)
+            output = select_summoner_info.get_most_recent_match_info()
+            await message.channel.send(output[5] + " as " + output[0] + " " + output[1]
+                                       + " KDA: " + output[2] + "/" + output[3] + "/" + output[4])
+        except Exception:
+            await message.channel.send("Invalid Summoner Name")
+    elif message.content.startswith('!Winrate '):
+        input = message.content
+        try:
+            select_summoner_info = SummonerInfo(input)
+            output = select_summoner_info.recent_win_rate()
+            await message.channel.send("Win: " + str(output[0]) + "Loss: " + str(output[1] - output[0])
+                                       + "Win rate: " + str(output[0]/output[1]))
+        except Exception:
+            await message.channel.send("Invalid Summoner Name")
+
 
 
 # uncomment this line and input password
